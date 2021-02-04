@@ -14,11 +14,6 @@ const DesktopMenu = ({location: {pathname}, token, cartCount, signout}) => {
   return (
     <Menu size="huge" borderless pointing style={{backgroundColor:'white'}}>
       <Container text>
-      <Menu.Item>
-      <Icon name="phone" />
-
-<strong>(225) 356-7363</strong>
-        </Menu.Item>
 
         <Menu.Item
           active={activeItem === withPrefix('/')}
