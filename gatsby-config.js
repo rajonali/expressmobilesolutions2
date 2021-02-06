@@ -42,6 +42,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ["Price"],
+        secretKey: 'sk_test_51IGhToG3l6YaloTgdDGmKANMJI2BIzPoYA0PzqZtvSPS2QNCEZMnUlBTdUBJdpggwvekuvTT3hYA2xyLeN5PODOn00oUV07CKP',
+        downloadFiles: false,
+      }
+    },    
+    {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         // Setting a color is optional.

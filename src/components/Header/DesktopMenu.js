@@ -3,7 +3,7 @@ import {Link, withPrefix} from 'gatsby'
 import {Menu, Container, Icon} from 'semantic-ui-react'
 import ShoppingCartIcon from './ShoppingCartIcon'
 import Logo from './Logo'
-
+import header from '../../css_overrides/header.css'
 const DesktopMenu = ({location: {pathname}, token, cartCount, signout}) => {
   const [activeItem, setActiveItem] = useState(pathname)
 
@@ -12,7 +12,7 @@ const DesktopMenu = ({location: {pathname}, token, cartCount, signout}) => {
   }, [pathname])
 
   return (
-    <Menu size="huge" borderless pointing style={{backgroundColor:'white'}}>
+    <Menu class="headerr" size="huge" borderless pointing style={{backgroundColor:'white'}}>
       <Container text>
 
         <Menu.Item
@@ -25,8 +25,8 @@ const DesktopMenu = ({location: {pathname}, token, cartCount, signout}) => {
         </Menu.Item>
         <Menu.Item              
               as={Link}
-              to="/Phones/"
-              active={activeItem === withPrefix('/phones/')}
+              to="/repairservices/"
+              active={activeItem === withPrefix('/repairservices/')}
             >
                             <Icon name="wrench" />
 
@@ -35,8 +35,8 @@ const DesktopMenu = ({location: {pathname}, token, cartCount, signout}) => {
 
         <Menu.Item              
               as={Link}
-              to="/Phones/"
-              active={activeItem === withPrefix('/phones/')}
+              to="/buydevice/"
+              active={activeItem === withPrefix('/buydevice/')}
             >
                             <Icon name="mobile" />
 
@@ -44,8 +44,8 @@ const DesktopMenu = ({location: {pathname}, token, cartCount, signout}) => {
             </Menu.Item>
             <Menu.Item              
               as={Link}
-              to="/Phones/"
-              active={activeItem === withPrefix('/phones/')}
+              to="/selldevice/"
+              active={activeItem === withPrefix('/selldevice/')}
             >
                             <Icon name="handshake" />
 
@@ -53,8 +53,8 @@ const DesktopMenu = ({location: {pathname}, token, cartCount, signout}) => {
             </Menu.Item>
             <Menu.Item              
               as={Link}
-              to="/Phones/"
-              active={activeItem === withPrefix('/phones/')}
+              to="/shopall/"
+              active={activeItem === withPrefix('/shopall/')}
             >
                             <Icon name="shopping bag" />
 
@@ -77,8 +77,8 @@ const DesktopMenu = ({location: {pathname}, token, cartCount, signout}) => {
             <Menu.Item onClick={signout}>Sign out</Menu.Item>
             <Menu.Item
               as={Link}
-              to="/cart/"
-              active={activeItem === withPrefix('/cart/')}
+              to="/cart_example/"
+              active={activeItem === withPrefix('/cart_example/')}
             >
               <ShoppingCartIcon cartCount={cartCount} name="Cart" />
             </Menu.Item>
@@ -108,8 +108,8 @@ const DesktopMenu = ({location: {pathname}, token, cartCount, signout}) => {
             </Menu.Item>
             <Menu.Item
               as={Link}
-              to="/cart/"
-              active={activeItem === withPrefix('/cart/')}
+              to="/cart_example/"
+              active={activeItem === withPrefix('/cart_example/')}
             >
               <ShoppingCartIcon cartCount={cartCount} name="Cart" />
             </Menu.Item>

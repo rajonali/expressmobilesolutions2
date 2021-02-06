@@ -9,6 +9,7 @@
   "dependencies": {
     "@moltin/gatsby-source-moltin": "^1.9.1",
     "@moltin/sdk": "^3.24.1",
+    "@stripe/stripe-js": "^1.12.0",
     "eslint-plugin-jest": "^22.21.0",
     "gatsby": "^2.29.3",
     "gatsby-cli": "^2.16.2",
@@ -21,6 +22,7 @@
     "gatsby-plugin-sharp": "^2.11.2",
     "gatsby-plugin-styled-components": "^3.7.0",
     "gatsby-source-filesystem": "^2.8.1",
+    "gatsby-source-stripe": "^3.2.1",
     "gatsby-transformer-sharp": "^2.9.0",
     "is-ci-cli": "^1.1.1",
     "lodash": "^4.17.20",
@@ -31,7 +33,8 @@
     "react-stripe-checkout": "^2.6.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "use-shopping-cart": "^2.4.1"
   },
   "devDependencies": {
     "@testing-library/cypress": "^5.3.1",

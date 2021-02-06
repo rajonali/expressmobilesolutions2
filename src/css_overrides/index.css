@@ -31,21 +31,3 @@
 
 
 
-a:link {
-    color:black !important;
-    background-color: transparent !important;
-    text-decoration: none !important;
-  }
-  
-  a:visited {
-    color: black !important;
-    background-color: transparent !important;
-    text-decoration: none !important;
-  }
-  
-  a:hover {
-    color:black !important;
-    background-color: transparent !important;
-    text-decoration: underline !important;
-  }
-  

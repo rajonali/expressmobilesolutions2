@@ -19,9 +19,14 @@ import lowpricebanner from '../images/lowpricebanner.png'
 import waterdamage from '../images/waterdamage.png'
 import hours from '../images/hours.png'
 import divider from '../images/divider.png'
+import Skus from '../components/Products/Skus'
+
+
+
 const StoreIndex = ({ location }) => {
   const data = useStaticQuery(graphql`
-    query IndexQuery {
+    
+  query IndexQuery {
       site {
         siteMetadata {
           title
@@ -135,7 +140,7 @@ From cracked screens to broken charging ports and more, Cell Phone Repair Baton 
       </div>
       <div className="popular_products" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
         <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>POPULAR PRODUCTS</strong></h1></div>
-        <ProductList products={filterProductsWithoutImages} />
+        <Skus />
       </div>
 
       <div className="store_information" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', paddingTop:'50px', alignItems: 'center' }}>

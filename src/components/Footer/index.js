@@ -3,17 +3,17 @@ import {Link} from 'gatsby'
 import {Segment, Container, Grid, List, Header} from 'semantic-ui-react'
 import footer from '../../css_overrides/footer.css'
 const twitterLink = (
-  <a href="https://instagram.com/expressmobilesolutions" alt="instagram link">
+  <a href="https://instagram.com/expressmobilesolutions" style={{color:'#b8ff00'}} alt="instagram link">
     Instagram
   </a>
 )
 const facebookLink = (
-  <a href="https://facebook.com/" alt="facebook link">
+  <a href="https://facebook.com/" style={{color:'#b8ff00'}} alt="facebook link">
     Facebook
   </a>
 )
 const emailLink = (
-  <a href="mailto:exp@exp.com" alt="email link">
+  <a href="mailto:exp@exp.com" style={{color:'#b8ff00'}} alt="email link">
     Email
   </a>
 )
@@ -34,22 +34,22 @@ color:'white'
           <Grid.Column width={4}>
             <Header style={{color:'white'}} as="h4" content="Repair Services" />
             <List>
-              <List.Item as={Link} to="/privacy/">
+              <List.Item style={{color:'#b8ff00'}} as={Link} to="/privacy/">
                 Smartphone Repair
               </List.Item>
-              <List.Item as={Link} to="/terms/">
+              <List.Item style={{color:'#b8ff00'}} as={Link} to="/terms/">
                 iPhone Repair
               </List.Item>
-              <List.Item as={Link} to="/terms/">
+              <List.Item style={{color:'#b8ff00'}} as={Link} to="/terms/">
                 iPad Repair
               </List.Item>
-              <List.Item as={Link} to="/terms/">
+              <List.Item style={{color:'#b8ff00'}} as={Link} to="/terms/">
                 Tablet Repair
               </List.Item>
-              <List.Item as={Link} to="/terms/">
+              <List.Item style={{color:'#b8ff00'}} as={Link} to="/terms/">
                 PC Repair
               </List.Item>
-              <List.Item as={Link} to="/terms/">
+              <List.Item style={{color:'#b8ff00'}} as={Link} to="/terms/">
                 Mac Repair
               </List.Item>
 
@@ -60,13 +60,13 @@ color:'white'
           <Grid.Column width={5}>
             <Header style={{color:'white'}} as="h4" content=" Cell Phone Repair Express Mobile Solutions " />
             <List>
-              <List.Item as={Link} to="/">
+              <List.Item style={{color:'#b8ff00'}} as={Link} to="/">
               Free Repair Estimate
               </List.Item>
-              <List.Item as={Link} to="/">
+              <List.Item style={{color:'#b8ff00'}} as={Link} to="/">
               Mail-In Repairs
               </List.Item>
-              <List.Item as={Link} to="/">
+              <List.Item style={{color:'#b8ff00'}} as={Link} to="/">
               Repair Status
               </List.Item>
 
