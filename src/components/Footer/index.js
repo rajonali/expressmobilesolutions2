@@ -26,7 +26,7 @@ const Footer = () => (
       width:'100%', 
       padding: '4em 0em',
       borderTop: '1px solid #f2f2f2',
-      backgroundColor:'#4b00a1',
+      backgroundColor:'#270053',
 color:'white',
     }}
   >
