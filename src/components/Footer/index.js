@@ -22,13 +22,15 @@ const Footer = () => (
   <Segment
     vertical
     style={{
+      marginBottom: '0px',
+      width:'100%', 
       padding: '4em 0em',
       borderTop: '1px solid #f2f2f2',
       backgroundColor:'#4b00a1',
-color:'white'
+color:'white',
     }}
   >
-    <Container text style={{ }}>
+    <Container text>
       <Grid stackable>
         <Grid.Row>
           <Grid.Column width={4}>

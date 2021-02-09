@@ -1,0 +1,19 @@
+.selldevicebanner {
+    position:relative; 
+    padding:50px;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    flex:1;
+}
+
+.readytoupgrade {
+    position:relative; 
+    padding:50px;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    
+}

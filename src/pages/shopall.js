@@ -5,7 +5,9 @@ import CartItemList from '../components/CartItemList'
 import CartSummary from '../components/CartSummary'
 import CartContext from '../components/Context/CartContext'
 import Layout from '../components/Layout'
-
+import Skus from '../components/Products/Skus'
+import allproducts from '../images/allproducts.png'
+import {Image} from 'semantic-ui-react'
 const Moltin = require('../../lib/moltin')
 
 const Cart = ({location}) => {
@@ -87,6 +89,7 @@ const Cart = ({location}) => {
             <div style={{padding:'100px'}}>
 
       <SEO title="Cart" />
+      <Image src={allproducts} wrapped ui={false} />
       </div>
     </Layout>
   )

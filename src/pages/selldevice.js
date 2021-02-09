@@ -5,7 +5,11 @@ import CartItemList from '../components/CartItemList'
 import CartSummary from '../components/CartSummary'
 import CartContext from '../components/Context/CartContext'
 import Layout from '../components/Layout'
-
+import '../css_overrides/selldevice.css'
+import { Image } from 'semantic-ui-react'
+import selldevicebanner from '../images/selldevice.png'
+import readytoupgradeinfographic from '../images/readytoupgradeinfographic.png'
+import selldeviceitseasy from '../images/selldeviceitseasy.png'
 const Moltin = require('../../lib/moltin')
 
 const Cart = ({location}) => {
@@ -84,8 +88,17 @@ const Cart = ({location}) => {
 
   return (
     <Layout location={location}>
-            <div style={{padding:'100px'}}>
-
+            <div style={{}}>
+<div className="selldevicebanner">
+  <Image src={selldevicebanner} />
+</div>
+<center><h2>
+Ready to Upgrade? Sell your old phones or Tablets
+</h2></center>
+<div className="readytoupgrade">
+<Image src={readytoupgradeinfographic} />
+<Image src={selldeviceitseasy} />
+</div>
       <SEO title="Cart" />
       </div>
     </Layout>
