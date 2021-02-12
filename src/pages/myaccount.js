@@ -18,30 +18,12 @@ const MyAccount = ({location}) => {
     if (!token) {
       navigate('/login/')
     }
-    getOrders(token)
-      .then(({data, meta, included}) => {
-        const orders = data.map(order => ({
-          ...order,
-        }))
-        setLoading(false)
-        setMeta(meta)
-        setOrders(orders)
-        setIncluded(included)
-      })
-      .catch(error => {
-        console.log(error)
-      })
   }, [token])
 
   return (
     <Layout location={location}>
       <SEO title="My Account" />
-      <OrderItemList
-        meta={meta}
-        orders={orders}
-        loading={loading}
-        included={included}
-      />
+      <p>:)</p>
     </Layout>
   )
 }

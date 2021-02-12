@@ -9,25 +9,42 @@ import {login} from '../../lib/moltin'
 import AuthContext from '../components/Context/AuthContext'
 import Layout from '../components/Layout'
 import useForm from '../components/Hooks/useForm'
+import firebase from "gatsby-plugin-firebase"
+
 
 const LoginPage = ({location}) => {
+  
   const [loading, setLoading] = useState(false)
   const [apiError, setApiError] = useState([])
   const {updateToken} = useContext(AuthContext)
+  
 
   const formLogin = () => {
+
+
+    
     setLoading(true)
-    login({email: values.email, password: values.password})
-      .then(({id, token}) => {
-        localStorage.setItem('customerToken', token)
-        localStorage.setItem('mcustomer', id)
+
+
+
+
+    firebase.auth().signInWithEmailAndPassword(values.email, values.password)
+      .then((userCredential) => {
+        // Signed in
+        localStorage.setItem('customerToken', userCredential['user']['userToken'])
+        localStorage.setItem('mcustomer', userCredential['user']['uid'])
         updateToken()
         navigate('/myaccount/')
+
+
+        // ...
       })
-      .catch(e => {
+      .catch((e) => {
         setLoading(false)
         setApiError(e.errors || e)
-      })
+      });
+
+
   }
   const {values, handleChange, handleSubmit, errors} = useForm(
     formLogin,

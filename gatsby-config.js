@@ -1,16 +1,41 @@
+const { flatMap } = require('lodash')
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const fetch = require("node-fetch");
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby starter ecommerce',
+    subtitle:'fetch data',
     author: 'Parminder Sanghera',
     description: 'A starter e-commerce site made using Gatsby.',
     siteUrl: 'https://parmsang.github.io/gatsby-starter-ecommerce/',
   },
   pathPrefix: '/gatsby-starter-ecommerce',
   plugins: [
+
+
+
+
+    {
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        credentials: {
+          apiKey: process.env.GATSBY_FIREBASE_APIKEY,
+          authDomain: process.env.GATSBY_FIREBASE_AUTHDOMAIN,
+          databaseURL: process.env.GATSBY_FIREBASE_DATABASEURL,
+          projectId: process.env.GATSBY_FIREBASE_PROJECTID,
+          storageBucket: process.env.GATSBY_FIREBASE_STORAGEBUCKET,
+          appId: process.env.GATSBY_FIREBASE_APPID
+        }
+      }
+    },
+
+
+
     {
       resolve: '@moltin/gatsby-source-moltin',
       options: {

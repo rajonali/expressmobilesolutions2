@@ -9,31 +9,42 @@ import AuthContext from '../components/Context/AuthContext'
 import {register} from '../../lib/moltin'
 import Layout from '../components/Layout'
 import useForm from '../components/Hooks/useForm'
+import firebase from "gatsby-plugin-firebase"
+
 
 const Register = ({location}) => {
   const [loading, setLoading] = useState(false)
   const [apiError, setApiError] = useState([])
   const {updateToken} = useContext(AuthContext)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [uid, setUID] = useState('')
+  const [token, setToken] = useState('')
 
   const formRegister = () => {
     setLoading(true)
-    register({
-      name: values.name,
-      email: values.email,
-      password: values.password,
-    })
-      .then(data => {
-        const {id, token} = data
-        localStorage.setItem('customerToken', token)
-        localStorage.setItem('mcustomer', id)
-        updateToken()
-        navigate('/myaccount/')
-      })
-      .catch(e => {
-        console.log(e)
-        setLoading(false)
-        setApiError(e.errors || e)
-      })
+
+
+    firebase
+         .auth()
+         .createUserWithEmailAndPassword(values.email, values.password)
+         .then((res) => {
+           console.log(res['user']['refreshToken']);
+           localStorage.setItem('customerToken', res['user']['refreshToken'])
+           localStorage.setItem('mcustomer', res['user']['uid'])   
+           updateToken()
+           navigate('/myaccount/')
+         })
+         .catch((error) => {
+            console.log(error)
+            console.log(error)
+            setLoading(false)
+            setApiError(error.errors || error)
+    
+         });
+
+    
+  
   }
 
   const {values, handleChange, handleSubmit, errors} = useForm(
