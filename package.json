@@ -7,6 +7,7 @@
     "url": "https://github.com/parmsang/gatsby-starter-ecommerce"
   },
   "dependencies": {
+    "@ccalamos/gatsby-source-googlemaps-static": "^2.2.1",
     "@moltin/gatsby-source-moltin": "^1.9.1",
     "@moltin/sdk": "^3.24.1",
     "@stripe/stripe-js": "^1.12.0",

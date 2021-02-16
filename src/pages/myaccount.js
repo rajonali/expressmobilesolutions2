@@ -4,8 +4,10 @@ import SEO from '../components/SEO'
 import OrderItemList from '../components/OrderItemList'
 import Layout from '../components/Layout'
 import AuthContext from '../components/Context/AuthContext'
-
+import firebase from "gatsby-plugin-firebase"
 import {getOrders} from '../../lib/moltin'
+import AddItemTest from '../components/addItemTest'
+
 
 const MyAccount = ({location}) => {
   const [loading, setLoading] = useState(true)
@@ -20,10 +22,13 @@ const MyAccount = ({location}) => {
     }
   }, [token])
 
+
   return (
     <Layout location={location}>
       <SEO title="My Account" />
-      <p>:)</p>
+      <div style={{paddingTop:'100px'}}>
+        <AddItemTest />
+      </div>
     </Layout>
   )
 }

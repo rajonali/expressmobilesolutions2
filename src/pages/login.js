@@ -1,73 +1,73 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-use-before-define */
 
-import React, {useState, useContext} from 'react'
-import {navigate} from 'gatsby'
-import {Header, Form, Input, Button, Segment, Message} from 'semantic-ui-react'
+import React, { useState, useContext } from 'react'
+import { navigate } from 'gatsby'
+import { Header, Form, Input, Button, Segment, Message } from 'semantic-ui-react'
 import SEO from '../components/SEO'
-import {login} from '../../lib/moltin'
+import { login } from '../../lib/moltin'
 import AuthContext from '../components/Context/AuthContext'
 import Layout from '../components/Layout'
 import useForm from '../components/Hooks/useForm'
 import firebase from "gatsby-plugin-firebase"
+import { signInWithEmailAndPassword } from '../firebase/auth'
 
+const LoginPage = ({ location }) => {
 
-const LoginPage = ({location}) => {
-  
   const [loading, setLoading] = useState(false)
   const [apiError, setApiError] = useState([])
-  const {updateToken} = useContext(AuthContext)
-  
+  const { updateToken } = useContext(AuthContext)
+
 
   const formLogin = () => {
 
 
-    
+
     setLoading(true)
 
 
 
 
-    firebase.auth().signInWithEmailAndPassword(values.email, values.password)
+    signInWithEmailAndPassword(values.email, values.password)
       .then((userCredential) => {
-        // Signed in
-        localStorage.setItem('customerToken', userCredential['user']['userToken'])
-        localStorage.setItem('mcustomer', userCredential['user']['uid'])
-        updateToken()
-        navigate('/myaccount/')
+      // Signed in
+      localStorage.setItem('customerToken', userCredential['user']['userToken'])
+      localStorage.setItem('mcustomer', userCredential['user']['uid'])
+      updateToken()
+      navigate('/myaccount/')
 
 
-        // ...
-      })
-      .catch((e) => {
-        setLoading(false)
-        setApiError(e.errors || e)
-      });
+      // ...
+    })
+  .catch((e) => {
+    setLoading(false)
+    setApiError(e.errors || e)
+  });
 
 
   }
-  const {values, handleChange, handleSubmit, errors} = useForm(
-    formLogin,
-    validate,
-  )
+const { values, handleChange, handleSubmit, errors } = useForm(
+  formLogin,
+  validate,
+)
 
-  const handleErrors = errors => {
-    if (!Array.isArray(errors) && !errors.length > 0) {
-      return (
-        <Message
-          error
-          header="Sorry"
-          content="Please check your login details and try again."
-        />
-      )
-    }
-    return errors.map(e => (
-      <Message error header={e.title} content={e.detail} key={e.status} />
-    ))
+const handleErrors = errors => {
+  if (!Array.isArray(errors) && !errors.length > 0) {
+    return (
+      <Message
+        error
+        header="Sorry"
+        content="Please check your login details and try again."
+      />
+    )
   }
-  return (
-    <Layout location={location}>
-      <div style={{padding:'100px'}}>
+  return errors.map(e => (
+    <Message error header={e.title} content={e.detail} key={e.status} />
+  ))
+}
+return (
+  <Layout location={location}>
+    <div style={{ padding: '100px' }}>
       <SEO title="Login" />
       <Header as="h1">Log in to your account</Header>
       <Form
@@ -90,7 +90,7 @@ const LoginPage = ({location}) => {
             />
           </Form.Field>
           {errors.email && (
-            <p data-testid="error" style={{color: 'red'}}>
+            <p data-testid="error" style={{ color: 'red' }}>
               {errors.email}
             </p>
           )}
@@ -105,15 +105,15 @@ const LoginPage = ({location}) => {
               onChange={handleChange}
             />
           </Form.Field>
-          {errors.password && <p style={{color: 'red'}}>{errors.password}</p>}
+          {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
           <Button type="submit" color="#4b00a1">
             Login
           </Button>
         </Segment>
       </Form>
-      </div>
-    </Layout>
-  )
+    </div>
+  </Layout>
+)
 }
 
 export default LoginPage

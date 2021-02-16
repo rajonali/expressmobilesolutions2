@@ -20,50 +20,41 @@ import waterdamage from '../images/waterdamage.png'
 import hours from '../images/hours.png'
 import divider from '../images/divider.png'
 import Skus from '../components/Products/Skus'
+import { CartProvider } from 'use-shopping-cart'
+import { loadStripe } from '@stripe/stripe-js'
 
 
 
 const StoreIndex = ({ location }) => {
+
+  const stripePromise = loadStripe("pk_test_51IGhToG3l6YaloTgAakGvMYVjrveEMs7oFJF7akytn6gyne2Lq0GDYmAYxh0iqFMPIclDMwQ1PtGqhq26WvwHYGw001BbrEVn0")
+
+
   const data = useStaticQuery(graphql`
     
   query IndexQuery {
+
+    staticMap {
+      childFile {
+    childImageSharp {
+      fixed(width: 200, height: 100) {
+        ...GatsbyImageSharpFixed
+      }
+    }        }
+  }
       site {
         siteMetadata {
           title
         }
       }
-      allMoltinProduct(limit:9) {
-        edges {
-          node {
-            id
-            name
-            description
-            mainImageHref
-            meta {
-              display_price {
-                with_tax {
-                  amount
-                  currency
-                  formatted
-                }
-              }
-            }
-            mainImage {
-              childImageSharp {
-                sizes(maxWidth: 600) {
-                  ...GatsbyImageSharpSizes
-                }
-              }
-            }
-          }
-        }
-      }
     }
   `)
 
+
+
+
   const siteTitle = get(data, 'site.siteMetadata.title')
   const products = get(data, 'allMoltinProduct.edges')
-  const filterProductsWithoutImages = products.filter(v => v.node.mainImageHref)
   return (
     <Layout location={location}>
       <SEO title={siteTitle} />
@@ -140,15 +131,27 @@ From cracked screens to broken charging ports and more, Cell Phone Repair Baton 
       </div>
       <div className="popular_products" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
         <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>POPULAR PRODUCTS</strong></h1></div>
+       <CartProvider mode="client-only"
+       stripe={stripePromise}
+       successUrl={`${window.location.origin}/page-2/`}
+       cancelUrl={`${window.location.origin}/`}
+       currency="USD"
+       allowedCountries={['US', 'GB', 'CA']}
+       billingAddressCollection={true}
+   >
+
         <Skus />
+        </CartProvider>
+
       </div>
+
 
       <div className="store_information" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', paddingTop:'50px', alignItems: 'center' }}>
         <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>STORE INFORMATION</strong></h1></div>
       </div>
 
       <div className="map" style={{display:'flex', flex:1, flexDirection:'row',paddingTop:'30px', justifyContent:'space-between'}}>
-      <Image style={{ }} height="400px" width="500px" src={map} />
+      <Image style={{ }} height="400px" width="500px" src={"https://www.google.com"+ data.staticMap.childFile.publicURL} />
       <Image style={{}} height="400px" width="650px" src={hours} />  
       </div>
       <div className="waterdamage">

@@ -17,8 +17,13 @@ module.exports = {
   pathPrefix: '/gatsby-starter-ecommerce',
   plugins: [
 
-
-
+    {
+      resolve: `@ccalamos/gatsby-source-googlemaps-static`,
+      options: {
+          key: `AIzaSyCAKYwzvX26frpBq3Wi_d483YybzulqaLw`,
+          center: `30.476779,-91.161143`,
+      },
+  },
 
     {
       resolve: "gatsby-plugin-firebase",

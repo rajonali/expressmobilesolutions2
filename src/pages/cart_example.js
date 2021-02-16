@@ -13,7 +13,7 @@ import CartOverview from '../components/CartOverview'
 import { loadStripe } from '@stripe/stripe-js'
 import { CartProvider } from 'use-shopping-cart'
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY)
+const stripePromise = loadStripe("pk_test_51IGhToG3l6YaloTgAakGvMYVjrveEMs7oFJF7akytn6gyne2Lq0GDYmAYxh0iqFMPIclDMwQ1PtGqhq26WvwHYGw001BbrEVn0")
 
 const CartExample = ({ location }) => {
 
@@ -102,13 +102,14 @@ const CartExample = ({ location }) => {
         <CartProvider
             mode="client-only"
             stripe={stripePromise}
-            
+            successUrl={`${window.location.origin}/page-2/`}
+            cancelUrl={`${window.location.origin}/`}
             currency="USD"
             allowedCountries={['US', 'GB', 'CA']}
             billingAddressCollection={true}
         >
             <CartOverview />
-
+<Skus />
         </CartProvider>
     </Layout>
     )
