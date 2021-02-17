@@ -29,13 +29,19 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
 
+
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => setUser(user))
+  }, [])
+
   const updateToken = (token) => setToken(
     token    
   )
 
   
   const signOut = () => {
-    setToken('')
+    setUser('')
   }
 
 
@@ -44,7 +50,9 @@ const AuthProvider = ({ children }) => {
       value={{
         token, 
         updateToken,
-        signOut
+        signOut,
+        user,
+        setUser
       }}
     >
       {children}

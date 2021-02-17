@@ -17,7 +17,7 @@ const MyAccount = ({location}) => {
 
 
 
-  const {updateToken, token} = useContext(AuthContext)
+  const {token, user} = useContext(AuthContext)
   
 
   
@@ -27,7 +27,7 @@ const MyAccount = ({location}) => {
 
   
   useEffect(() => {
-    if (!token) {
+    if (!user) {
       navigate('/login/')
     }
     else {
@@ -35,7 +35,7 @@ const MyAccount = ({location}) => {
     setDisplayName(firebase.auth().currentUser.displayName)
 
     }
-  }, [token])
+  }, [user])
 
 
   return (
@@ -44,7 +44,6 @@ const MyAccount = ({location}) => {
       <div style={{paddingTop:'100px'}}>
         <h1>User Email: {email}</h1>
         <h1>Display Name: {displayName}</h1>
-        <h1>Token: {token}</h1>
         
         <AddItemTest />
 

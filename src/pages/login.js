@@ -16,7 +16,8 @@ const LoginPage = ({ location }) => {
 
   const [loading, setLoading] = useState(false)
   const [apiError, setApiError] = useState([])
-  const { token, updateToken } = useContext(AuthContext)
+
+  const { token, updateToken, user, setUser} = useContext(AuthContext)
 
 
   const formLogin = () => {
@@ -27,7 +28,7 @@ const LoginPage = ({ location }) => {
     signInWithEmailAndPassword(values.email, values.password)
       .then((userCredential) => {
       // Signed in
-      console.log(JSON.parse(JSON.stringify(userCredential)).user.stsTokenManager.refreshToken)
+      setUser(userCredential)
       updateToken(JSON.parse(JSON.stringify(userCredential)).user.stsTokenManager.refreshToken)
       navigate('/myaccount/')
 
@@ -47,11 +48,11 @@ const LoginPage = ({ location }) => {
 
 
 useEffect(() => {
-  if(token) {
+  if(user) {
     navigate('/myaccount')
   }
 
-}, [token])
+}, [user])
 
 
 
