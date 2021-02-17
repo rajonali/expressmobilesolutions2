@@ -14,11 +14,26 @@ const MyAccount = ({location}) => {
   const [orders, setOrders] = useState([])
   const [included, setIncluded] = useState([])
   const [meta, setMeta] = useState({})
-  const {token} = useContext(AuthContext)
 
+
+
+  const {updateToken, token} = useContext(AuthContext)
+  
+
+  
+  
+  const [displayName, setDisplayName] = useState('N/A')
+  const [email, setEmail] = useState('N/A')
+
+  
   useEffect(() => {
     if (!token) {
       navigate('/login/')
+    }
+    else {
+    setEmail(firebase.auth().currentUser.email)
+    setDisplayName(firebase.auth().currentUser.displayName)
+
     }
   }, [token])
 
@@ -27,7 +42,12 @@ const MyAccount = ({location}) => {
     <Layout location={location}>
       <SEO title="My Account" />
       <div style={{paddingTop:'100px'}}>
+        <h1>User Email: {email}</h1>
+        <h1>Display Name: {displayName}</h1>
+        <h1>Token: {token}</h1>
+        
         <AddItemTest />
+
       </div>
     </Layout>
   )

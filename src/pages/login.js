@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-use-before-define */
 
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { navigate } from 'gatsby'
 import { Header, Form, Input, Button, Segment, Message } from 'semantic-ui-react'
 import SEO from '../components/SEO'
@@ -16,7 +16,7 @@ const LoginPage = ({ location }) => {
 
   const [loading, setLoading] = useState(false)
   const [apiError, setApiError] = useState([])
-  const { updateToken } = useContext(AuthContext)
+  const { token, updateToken } = useContext(AuthContext)
 
 
   const formLogin = () => {
@@ -24,28 +24,38 @@ const LoginPage = ({ location }) => {
 
 
     setLoading(true)
-
-
-
-
     signInWithEmailAndPassword(values.email, values.password)
       .then((userCredential) => {
       // Signed in
-      localStorage.setItem('customerToken', userCredential['user']['userToken'])
-      localStorage.setItem('mcustomer', userCredential['user']['uid'])
-      updateToken()
+      console.log(JSON.parse(JSON.stringify(userCredential)).user.stsTokenManager.refreshToken)
+      updateToken(JSON.parse(JSON.stringify(userCredential)).user.stsTokenManager.refreshToken)
       navigate('/myaccount/')
 
 
       // ...
     })
   .catch((e) => {
+    console.log(e)
     setLoading(false)
     setApiError(e.errors || e)
   });
 
 
   }
+
+
+
+
+useEffect(() => {
+  if(token) {
+    navigate('/myaccount')
+  }
+
+}, [token])
+
+
+
+
 const { values, handleChange, handleSubmit, errors } = useForm(
   formLogin,
   validate,

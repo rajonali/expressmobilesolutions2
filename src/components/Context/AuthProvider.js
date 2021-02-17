@@ -1,27 +1,50 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useReducer, useEffect } from 'react'
 import AuthContext from './AuthContext'
+import firebase from 'gatsby-plugin-firebase'
 
-const AuthProvider = ({children}) => {
+const initialState = {
+  uid: "",
+  isUserLoggedIn: false,
+}
+
+function AuthReducers(state, action) {
+  switch (action.type) {
+    case 'TOGGLE_USER_LOGGED_IN': {
+      return {
+        ...state,
+        isUserLoggedIn: state.isUserLoggedIn
+      }
+    }
+    default:
+      throw new Error('Bad action type')
+  }
+}
+
+
+
+const AuthProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(AuthReducers, initialState)
+  const [uid, setUid] = useState("")
   const [token, setToken] = useState(null)
+  const [user, setUser] = useState(null);
 
-  const updateToken = () => setToken(localStorage.getItem('customerToken'))
 
+  const updateToken = (token) => setToken(
+    token    
+  )
+
+  
   const signOut = () => {
-    localStorage.removeItem('customerToken')
     setToken('')
   }
 
-  useEffect(() => {
-    const token = localStorage.getItem('customerToken')
-    setToken(token)
-  }, [])
 
   return (
     <AuthContext.Provider
       value={{
-        token,
+        token, 
         updateToken,
-        signOut,
+        signOut
       }}
     >
       {children}

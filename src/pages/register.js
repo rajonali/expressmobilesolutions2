@@ -17,6 +17,7 @@ const Register = ({location}) => {
   const [apiError, setApiError] = useState([])
   const {updateToken} = useContext(AuthContext)
   const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [uid, setUID] = useState('')
   const [token, setToken] = useState('')
@@ -34,6 +35,7 @@ const Register = ({location}) => {
            localStorage.setItem('mcustomer', res['user']['uid'])   
            updateToken()
            navigate('/myaccount/')
+           return res.user.updateProfile({displayName: values.name})
          })
          .catch((error) => {
             console.log(error)

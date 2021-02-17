@@ -1,5 +1,10 @@
-import React from 'react'
+import React, { createContext } from 'react'
 
-const AuthContext = React.createContext({token: '', updateToken: () => {}})
+const AuthContext = React.createContext({token:'', updateToken: () => {},
 
-export default AuthContext
+
+})
+
+
+
+export default AuthContext;

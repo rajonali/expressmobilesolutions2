@@ -7,8 +7,8 @@ import CartContext from '../Context/CartContext'
 
 const Header = ({location}) => {
   const {cartCount} = useContext(CartContext)
-  const {token, signOut} = useContext(AuthContext)
-
+  const {state, uid, token, signOut} = useContext(AuthContext)
+  console.log({uid})
   return (
     <>
       <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
@@ -17,6 +17,7 @@ const Header = ({location}) => {
           token={token}
           cartCount={cartCount}
           signout={signOut}
+          state={state}
         />
       </Responsive>
       <Responsive minWidth={Responsive.onlyTablet.minWidth}>
@@ -25,6 +26,7 @@ const Header = ({location}) => {
           token={token}
           cartCount={cartCount}
           signout={signOut}
+          state={{state}}
         />
       </Responsive>
     </>

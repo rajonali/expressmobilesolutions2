@@ -109,7 +109,6 @@ const CartExample = ({ location }) => {
             billingAddressCollection={true}
         >
             <CartOverview />
-<Skus />
         </CartProvider>
     </Layout>
     )
