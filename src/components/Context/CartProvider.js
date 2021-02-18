@@ -1,21 +1,47 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import CartContext from './CartContext'
+import firebase from 'gatsby-plugin-firebase';
 
-const CartProvider = ({children}) => {
+
+
+
+const CartProvider = ({ children }) => {
   const [cartId, setCartId] = useState(null)
   const [cartCount, setCartCount] = useState(0)
 
   const addToCart = (quantity, cartId) => {
     const cartCountResult = Number(cartCount) + Number(quantity)
+
     localStorage.setItem(
       'mdata',
-      JSON.stringify({cartId, cartCount: cartCountResult}),
+      JSON.stringify({ cartId, cartCount: cartCountResult }),
     )
+
+
+
+
+    console.log('added')
+    firebase
+      .firestore()
+      .collection("cart")
+      .add({
+        cartId: "abc123",
+        name: "whiteclaw",
+        type: "beer",
+        qty: cartCountResult,
+        description:
+          "Pale lager beer with 5% alcohol by volume produced by the Dutch brewing company Heineken International",
+      })
+      .then(ref => {
+        console.log("Added document with ID: ", ref.id)
+      })
+
+
     setCartCount(cartCountResult)
   }
 
   const updateCartCount = (cartCount, cartId) => {
-    localStorage.setItem('mdata', JSON.stringify({cartId, cartCount}))
+    localStorage.setItem('mdata', JSON.stringify({ cartId, cartCount }))
     setCartCount(cartCount)
   }
 
@@ -31,7 +57,7 @@ const CartProvider = ({children}) => {
         ((Math.random() * 16) | 0).toString(16),
       )
       localStorage.setItem('mcart', cartId)
-      localStorage.setItem('mdata', JSON.stringify({cartId, cartCount: 0}))
+      localStorage.setItem('mdata', JSON.stringify({ cartId, cartCount: 0 }))
       setCartId(cartId)
     } else {
       const data = localStorage.getItem('mdata')

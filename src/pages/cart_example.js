@@ -30,7 +30,9 @@ const CartExample = ({ location }) => {
 
     async function getCartItems() {
         const cartIdLocal = await localStorage.getItem('mcart')
+        console.log(cartIdLocal)
         await Moltin.getCartItems(cartIdLocal).then(({ data, meta }) => {
+            console.log(data)
             setItems(data)
             setCartId(cartIdLocal)
             setMeta(meta)

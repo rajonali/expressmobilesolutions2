@@ -7,7 +7,7 @@ import AuthContext from '../components/Context/AuthContext'
 import firebase from "gatsby-plugin-firebase"
 import {getOrders} from '../../lib/moltin'
 import AddItemTest from '../components/addItemTest'
-
+import {Container,Label, Button, Input, Form} from 'semantic-ui-react'
 
 const MyAccount = ({location}) => {
   const [loading, setLoading] = useState(true)
@@ -41,13 +41,24 @@ const MyAccount = ({location}) => {
   return (
     <Layout location={location}>
       <SEO title="My Account" />
-      <div style={{paddingTop:'100px'}}>
-        <h1>User Email: {email}</h1>
-        <h1>Display Name: {displayName}</h1>
-        
-        <AddItemTest />
-
+      <Container style={{padding:'100px'}}>
+      <Form>
+    <Form.Field>
+      <label>Display Name</label>
+      <input placeholder={displayName} />
+    </Form.Field>
+    <Form.Field>
+      <label>Email</label>
+      <input placeholder={displayName} />
+    </Form.Field>
+    <div style={{display:'flex', flexDirection:'row'}}>
+      <Button>Save Changes</Button>
+      <Button>Change Password</Button>
       </div>
+
+    </Form>
+
+      </Container>
     </Layout>
   )
 }

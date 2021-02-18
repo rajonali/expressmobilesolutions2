@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 import { useShoppingCart } from 'use-shopping-cart'
+import { Container, Card, Button, Label } from 'semantic-ui-react'
+
 
 const buttonStyles = {
   fontSize: '13px',
@@ -39,35 +41,69 @@ const Cart = () => {
 
     // all of your basic product data still exists (i.e. name, image, price)
     cart.push(
-      <article>
-        {/* image here */}
+      <Card style={{flex:1, display:'flex', width:'100%'}}>
+        <div>
+                <div style={{display:'flex', flex:1, flexDirection:'row', justifyContent:'space-around'}}>
+<div style={{display:'flex',flex:1, maxWidth:'20%', justifyContent:'flex-start', alignItems:'center'}}>
+        <img src={cartEntry.image} height={200} width={200} />
+        </div>
+        <div style={{display:'flex', flex:1, flexDirection:'column', justifyContent:'center', alignItems:'flex-start'}}>
+  {cartEntry.name}
+</div>
+
         {/* name here */}
         {/* formatted total price of that item */}
-        <p>Line total: {cartEntry.formattedValue}</p>
-
         {/* What if we want to remove one of the item... or add one */}
-        <button
+        <div style={{display:'flex', flex:1, margin:'0px 20px 0px 20px'}}>
+
+
+          <div style={{display:'flex',flex:1,  flexDirection:'row',justifyContent:'flex-end', }}>
+
+          <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+        <Button
+        size="large"
           onClick={() => decrementItem(cartEntry.sku)}
           aria-label={`Remove one ${cartEntry.name} from your cart`}
         >
           -
-        </button>
-        <p>Quantity: {cartEntry.quantity}</p>
-        <button
+        </Button>
+        </div>
+        <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+        <Label style={{margin:'10px'}}>{cartEntry.quantity}</Label>
+        </div>
+        <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+        <Button
+                size="large"
+
           onClick={() => incrementItem(cartEntry.sku)}
           aria-label={`Add one ${cartEntry.name} to your cart`}
         >
           +
-        </button>
-
+        </Button>
+        </div>
+        </div>
         {/* What if we don't want this product at all */}
-        <button
+        <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+        <Button
+                size="large"
+
+        style={{margin:'20px'}}
           onClick={() => removeItem(cartEntry.sku)}
           aria-label={`Remove all ${cartEntry.name} from your cart`}
         >
           Remove
-        </button>
-      </article>
+        </Button>
+        </div>
+        <div style={{display:'flex', flex:1, flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+        <p>{cartEntry.formattedValue}</p>
+
+        </div>
+
+        </div>
+
+        </div>
+        </div>
+      </Card>
     )
   }
 
@@ -78,10 +114,15 @@ const Cart = () => {
       <div>
       {cart}
       </div>  
-      <p>Number of Items: {cartCount}</p>
-      <p>Total: {formattedTotalPrice}</p>
-
-      {/* Redirects the user to Stripe */}
+      <div style={{flex:1, display:'flex', flexDirection:'row', paddingTop:20, justifyContent:'flex-end',}}>
+      <div style={{flexDirection:'column', flex:1, display:'flex',   maxWidth:'25%'}}>
+        <div>
+      <div style={{display:'flex',  textAlign:'right', margin:0, flexDirection:'row'}}><h3>Quantity: {cartCount}</h3></div>
+      </div>
+      <div>
+      <div style={{display:'flex', margin:0, flexDirection:'row'}}><h2>Total: {formattedTotalPrice}</h2></div>
+      </div>
+      </div>
       <button
         style={buttonStyles}
         disabled={loading}
@@ -95,6 +136,9 @@ const Cart = () => {
       <button style={buttonStyles} onClick={clearCart}>
         Clear cart
       </button>
+      </div>
+      {/* Redirects the user to Stripe */}
+    
     </div>
   )
 }
