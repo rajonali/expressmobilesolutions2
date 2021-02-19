@@ -4,6 +4,7 @@ import {Menu, Container, Icon} from 'semantic-ui-react'
 import ShoppingCartIcon from './ShoppingCartIcon'
 import Logo from './Logo'
 import header from '../../css_overrides/header.css'
+
 const DesktopMenu = ({location: {pathname}, token, user, cartCount, signout}) => {
   const [activeItem, setActiveItem] = useState(pathname)
 

@@ -6,7 +6,7 @@ const cardStyles = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-around',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   padding: '1rem',
   marginBottom: '1rem',
   boxShadow: '5px 5px 25px 0 rgba(46,61,73,.2)',

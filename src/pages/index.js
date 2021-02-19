@@ -26,7 +26,8 @@ import { loadStripe } from '@stripe/stripe-js'
 
 
 const StoreIndex = ({ location }) => {
-
+  
+  
   const stripePromise = loadStripe("pk_test_51IGhToG3l6YaloTgAakGvMYVjrveEMs7oFJF7akytn6gyne2Lq0GDYmAYxh0iqFMPIclDMwQ1PtGqhq26WvwHYGw001BbrEVn0")
 
 
@@ -34,14 +35,6 @@ const StoreIndex = ({ location }) => {
     
   query IndexQuery {
 
-    staticMap {
-      childFile {
-    childImageSharp {
-      fixed(width: 200, height: 100) {
-        ...GatsbyImageSharpFixed
-      }
-    }        }
-  }
       site {
         siteMetadata {
           title
@@ -129,7 +122,7 @@ From cracked screens to broken charging ports and more, Cell Phone Repair Baton 
       <div className="lowpricebanner">
         <Image src={lowpricebanner} />
       </div>
-      <div className="popular_products" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <div className="popular_products" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'space-around', alignItems: 'space-between' }}>
         <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>POPULAR PRODUCTS</strong></h1></div>
        <CartProvider mode="client-only"
        stripe={stripePromise}
@@ -151,7 +144,6 @@ From cracked screens to broken charging ports and more, Cell Phone Repair Baton 
       </div>
 
       <div className="map" style={{display:'flex', flex:1, flexDirection:'row',paddingTop:'30px', justifyContent:'space-between'}}>
-      <Image style={{ }} height="400px" width="500px" src={"https://www.google.com"+ data.staticMap.childFile.publicURL} />
       <Image style={{}} height="400px" width="650px" src={hours} />  
       </div>
       <div className="waterdamage">
