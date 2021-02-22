@@ -2,6 +2,10 @@ import React, { useState, useContext, useEffect, componentDidMount } from 'react
 import CartItemList from '../components/CartItemList'
 import CartSummary from '../components/CartSummary'
 import CartContext from '../components/Context/CartContext'
+
+
+import { Location } from '@reach/router';
+
 const Moltin = require('../../lib/moltin')
 
 import Layout from '../components/Layout'
@@ -24,6 +28,7 @@ const CartExample = ({ location }) => {
     const [cartId, setCartId] = useState({})
     const { updateCartCount } = useContext(CartContext)
 
+    const [isBrowser, setIsBrowser] = useState(false);
 
 
 
@@ -41,7 +46,9 @@ const CartExample = ({ location }) => {
     }
 
     useEffect(() => {
-        getCartItems()
+        getCartItems();
+        setIsBrowser(typeof window !== "undefined");
+
     }, [])
 
     const handleCheckout = async data => {
@@ -104,8 +111,8 @@ const CartExample = ({ location }) => {
         <CartProvider
             mode="client-only"
             stripe={stripePromise}
-            successUrl={`${window.location.origin}/page-2/`}
-            cancelUrl={`${window.location.origin}/`}
+            successUrl={isBrowser && `${location.origin}/page-2/`}
+            cancelUrl={isBrowser && `${location.origin}/`}
             currency="USD"
             allowedCountries={['US', 'GB', 'CA']}
             billingAddressCollection={true}

@@ -1,7 +1,7 @@
 import React, { useState, useReducer, useEffect } from 'react'
 import AuthContext from './AuthContext'
 import firebase from 'gatsby-plugin-firebase'
-
+require('firebase/auth')
 const initialState = {
   uid: "",
   isUserLoggedIn: false,

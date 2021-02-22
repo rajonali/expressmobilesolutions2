@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import get from 'lodash/get'
 import { Image, Header, Grid, Card } from 'semantic-ui-react'
@@ -26,8 +26,13 @@ import { loadStripe } from '@stripe/stripe-js'
 
 
 const StoreIndex = ({ location }) => {
-  
-  
+  const [isBrowser, setIsBrowser] = useState(false);
+
+  useEffect(() => {
+    setIsBrowser(typeof window !== "undefined");
+  }, [])
+
+
   const stripePromise = loadStripe("pk_test_51IGhToG3l6YaloTgAakGvMYVjrveEMs7oFJF7akytn6gyne2Lq0GDYmAYxh0iqFMPIclDMwQ1PtGqhq26WvwHYGw001BbrEVn0")
 
 
@@ -75,45 +80,45 @@ const StoreIndex = ({ location }) => {
         </Header.Content>
       </Header>
 
-      <div style={{display:'flex', flex:1, alignItems:'center', justifyContent:'center',flexDirection:'column'}}>
-<h2 style={{padding:'50px'}}>      Repair your device today at Express Mobile Solutions</h2>
+      <div style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+        <h2 style={{ padding: '50px' }}>      Repair your device today at Express Mobile Solutions</h2>
         <Grid columns={3}>
           <Grid.Row>
-            <Grid.Column style={{display:'flex', flex:1, flexDirection:'column', justifyContent:'center', alignItems:'center'}}> 
+            <Grid.Column style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               <Image width="150" height="150" src={phone} style={{}} />
               <h2>iPhone Repairs</h2>
               <p>
-Are you in need of an iPhone repair in Baton Rouge, LA? You’re in luck because at Cell Phone Repair Baton Rouge Towne Center, we have seen and fixed it all!</p>
+                Are you in need of an iPhone repair in Baton Rouge, LA? You’re in luck because at Cell Phone Repair Baton Rouge Towne Center, we have seen and fixed it all!</p>
             </Grid.Column>
-            <Grid.Column style={{display:'flex', flex:1, flexDirection:'column', justifyContent:'center', alignItems:'center'}}> 
-            <Image width="150" height="150" src={android} />
-            <h2>Smartphone Repairs</h2>
+            <Grid.Column style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <Image width="150" height="150" src={android} />
+              <h2>Smartphone Repairs</h2>
 
               <p>
 
-From cracked screens to broken charging ports and more, Cell Phone Repair Baton Rouge Towne Center is your one-stop smartphone repair shop in Baton Rouge, LA.</p>      </Grid.Column>
-<Grid.Column style={{display:'flex', flex:1, flexDirection:'column', justifyContent:'center', alignItems:'center'}}> 
-            <Image width="150" height="150" src={ipad} />
-            <h2>iPad Repairs</h2>
+                From cracked screens to broken charging ports and more, Cell Phone Repair Baton Rouge Towne Center is your one-stop smartphone repair shop in Baton Rouge, LA.</p>      </Grid.Column>
+            <Grid.Column style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <Image width="150" height="150" src={ipad} />
+              <h2>iPad Repairs</h2>
 
               <p>Is a damaged iPad slowing you down? Contact CPR Baton Rouge, LA! Our repair experts will have your iPad repaired in before you know it.</p>      </Grid.Column>
 
           </Grid.Row>
 
           <Grid.Row>
-          <Grid.Column style={{display:'flex', flex:1, flexDirection:'column', justifyContent:'center', alignItems:'center'}}> 
-            <Image width="150" height="150" src={tablet} />
-            <h2>Tablet Repairs</h2>
+            <Grid.Column style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <Image width="150" height="150" src={tablet} />
+              <h2>Tablet Repairs</h2>
 
               <p>Whether you have a tablet by Microsoft, Samsung, Google, or any other brand, you can depend on CPR technicians for all of your tablet repair needs!</p>      </Grid.Column>
-              <Grid.Column style={{display:'flex', flex:1, flexDirection:'column', justifyContent:'center', alignItems:'center'}}> 
-            <Image width="150" height="150" src={mac} />
-            <h2>Mac Repairs</h2>
+            <Grid.Column style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <Image width="150" height="150" src={mac} />
+              <h2>Mac Repairs</h2>
 
               <p>Are you looking for Mac repair services in Baton Rouge, LA? Rely on the professionals at CPR for all of your Mac repair needs!</p>      </Grid.Column>
-              <Grid.Column style={{display:'flex', flex:1, flexDirection:'column', justifyContent:'center', alignItems:'center'}}> 
-            <Image width="150" height="150" src={laptop} />
-            <h2>Laptop Repairs</h2>
+            <Grid.Column style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <Image width="150" height="150" src={laptop} />
+              <h2>Laptop Repairs</h2>
 
               <p>If your laptop is moving at a snail’s pace, visit Cell Phone Repair Baton Rouge Towne Center! We provide laptop repair, tune-up and virus removal services for all of the most popular laptop brands.</p>      </Grid.Column>
           </Grid.Row>
@@ -124,30 +129,30 @@ From cracked screens to broken charging ports and more, Cell Phone Repair Baton 
       </div>
       <div className="popular_products" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'space-around', alignItems: 'space-between' }}>
         <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>POPULAR PRODUCTS</strong></h1></div>
-       <CartProvider mode="client-only"
-       stripe={stripePromise}
-       successUrl={`${window.location.origin}/page-2/`}
-       cancelUrl={`${window.location.origin}/`}
-       currency="USD"
-       allowedCountries={['US', 'GB', 'CA']}
-       billingAddressCollection={true}
-   >
+        <CartProvider mode="client-only"
+          stripe={stripePromise}
+          successUrl={isBrowser && `${window.location.origin}/page-2/`}
+          cancelUrl={isBrowser && `${window.location.origin}/`}
+          currency="USD"
+          allowedCountries={['US', 'GB', 'CA']}
+          billingAddressCollection={true}
+        >
 
-        <Skus />
+          <Skus />
         </CartProvider>
 
       </div>
 
 
-      <div className="store_information" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', paddingTop:'50px', alignItems: 'center' }}>
+      <div className="store_information" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', paddingTop: '50px', alignItems: 'center' }}>
         <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>STORE INFORMATION</strong></h1></div>
       </div>
 
-      <div className="map" style={{display:'flex', flex:1, flexDirection:'row',paddingTop:'30px', justifyContent:'space-between'}}>
-      <Image style={{}} height="400px" width="650px" src={hours} />  
+      <div className="map" style={{ display: 'flex', flex: 1, flexDirection: 'row', paddingTop: '30px', justifyContent: 'space-between' }}>
+        <Image style={{}} height="400px" width="650px" src={hours} />
       </div>
       <div className="waterdamage">
-      <Image src={waterdamage} />
+        <Image src={waterdamage} />
       </div>
     </Layout>
   )

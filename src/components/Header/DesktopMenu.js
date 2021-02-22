@@ -24,6 +24,9 @@ const DesktopMenu = ({location: {pathname}, token, user, cartCount, signout}) =>
         >
           <Logo />
         </Menu.Item>
+
+
+        
         <Menu.Item              
               as={Link}
               to="/repairservices/"
@@ -31,7 +34,7 @@ const DesktopMenu = ({location: {pathname}, token, user, cartCount, signout}) =>
             >
                             <Icon name="wrench" />
 
-               REPAIR SERVICES
+               REPAIRS
             </Menu.Item>
 
         <Menu.Item              
@@ -61,6 +64,19 @@ const DesktopMenu = ({location: {pathname}, token, user, cartCount, signout}) =>
 
                SHOP
             </Menu.Item>
+            <Menu.Item              
+              as={Link}
+              to="/repairservices/"
+              active={activeItem === withPrefix('/repairservices/')}
+            >
+                            <Icon name="wrench" />
+
+               SUPPORT
+            </Menu.Item>
+
+         
+
+
             <Menu.Item>
 
             </Menu.Item>

@@ -85,4 +85,3 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const node = Object.assign({}, myData, nodeMeta)
   createNode(node)
 }
-
