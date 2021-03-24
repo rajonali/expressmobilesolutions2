@@ -67,8 +67,8 @@ const DesktopMenu = ({location: {pathname}, token, user, cartCount, signout}) =>
             </Menu.Item>
             <Menu.Item              
               as={Link}
-              to="/repairservices/"
-              active={activeItem === withPrefix('/repairservices/')}
+              to="/support/"
+              active={activeItem === withPrefix('/support/')}
             >
                             <Icon name="wrench" />
 

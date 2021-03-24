@@ -25,6 +25,9 @@ import { loadStripe } from '@stripe/stripe-js'
 import greenhuebg from '../images/greenhuebg.png'
 import iconseries from '../images/4icons.png'
 import deviceprotection from '../images/protection.png'
+import buyselltradebanner from '../images/buyselltradebanner.png'
+
+
 const StoreIndex = ({ location }) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
@@ -127,6 +130,10 @@ const StoreIndex = ({ location }) => {
       <div className="lowpricebanner">
         <Image src={lowpricebanner} />
       </div>
+
+      <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
+        <Image src={buyselltradebanner} /> 
+      </div>
       <div className="popular_products" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'space-around', alignItems: 'space-between' }}>
         <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>POPULAR PRODUCTS</strong></h1></div>
         <CartProvider mode="client-only"
@@ -146,7 +153,51 @@ const StoreIndex = ({ location }) => {
 
       <div class="lowpricebanner">
         <div class="overlayy" style={{ display: 'flex', flex: 1, zIndex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-          <div style={{ display: 'flex', position: 'absolute', flex: 1, zIndex: 3 }}><div style={{ display: 'flex', flexDirection: 'row' }}> <Card><p>same day service</p></Card><Card><p>oem parts</p></Card><Card><p>genius technicians</p></Card><Card><p>quality guaranteed</p></Card></div></div>
+          <div>
+          
+          </div>
+          
+          <div style={{ display: 'flex', position: 'absolute', flex: 1, zIndex: 3 }}>
+            <div style={{ display: 'flex', flexDirection: 'row' }}> 
+          <div style={{padding:'30px',}}>
+          
+          <div style={{padding:'10px',}}>
+          <Card>
+           
+    
+            <h1>Limited Lifetime Warranty on ALL Repairs*</h1>
+            <p>
+
+            We offer a limited lifetime warranty on all our repairs. If the original repair fails because of a defect with a part we installed or due to the workmanship in repairing the device, we will fix it for FREE. No questions asked.
+</p></Card></div>
+<div style={{padding:'10px',}}>
+<Card>
+  <h1>
+              Same Day Repairs </h1>
+              <p>
+              We really know our stuff, and this experience shows in the quality and speed of our work. Many repairs can be done same day, while you wait.  We know how inconvenient a broken device can be, so we work quickly to fix the issues and get you plugged back in.
+</p></Card>
+</div>
+</div>
+
+<div style={{padding:'30px',}}>
+<div style={{padding:'10px',}}>
+<Card>
+<h1>              Expert Repair Technicians</h1>
+              <p>
+              You only want the best technicians working on your electronic devices. Our highly skilled staff of technicians are true experts and will get your device working like new.
+</p></Card></div>
+
+<div style={{padding:'10px',}}>
+
+<Card>
+             <h1> Drop It Off or Mail It In!              </h1>
+             <p>Drop it off, mail it in, or we’ll come to YOU!  We offer multiple locations and options so that you can get us your device when and where it is convenient for you. You can choose to drop it off, mail it in, or have a technician meet you with our REPAIR2U™ service.
+
+</p></Card>
+</div>
+</div>
+</div></div>
           <Image src={greenhuebg} style={{ display: 'flex', flex: 1, zIndex: 2 }} height="1450px" />
 
         </div>
