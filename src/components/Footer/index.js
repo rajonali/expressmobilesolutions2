@@ -33,7 +33,22 @@ color:'white',
     <Container text>
       <Grid stackable>
         <Grid.Row>
-          <Grid.Column width={4}>
+        <Grid.Column width={3}>
+            <Header style={{color:'white'}} as="h4" content="Hours" />
+            <List>
+              <List.Item style={{color:'white'}} >
+              Mon - Sat: 9am - 7pm
+              </List.Item>
+              <List.Item style={{color:'white'}} >
+              Sun: Closed
+              </List.Item>
+             
+
+
+
+            </List>
+          </Grid.Column>
+          <Grid.Column width={3}>
             <Header style={{color:'white'}} as="h4" content="Repair Services" />
             <List>
               <List.Item style={{color:'#b8ff00'}} as={Link} to="/privacy/">
@@ -59,7 +74,7 @@ color:'white',
 
             </List>
           </Grid.Column>
-          <Grid.Column width={5}>
+          <Grid.Column width={3}>
             <Header style={{color:'white'}} as="h4" content=" Cell Phone Repair Express Mobile Solutions " />
             <List>
               <List.Item style={{color:'#b8ff00'}} as={Link} to="/">

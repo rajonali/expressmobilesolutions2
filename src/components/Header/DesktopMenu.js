@@ -23,6 +23,7 @@ const DesktopMenu = ({location: {pathname}, token, user, cartCount, signout}) =>
           header
         >
           <Logo />
+
         </Menu.Item>
 
 

@@ -82,22 +82,15 @@ const MobileMenu = ({location: {pathname}, token, cartCount, signout}) => {
   return (
     <Menu size="huge" borderless pointing>
       <Container text>
-        <Menu.Item
-          as={Link}
-          to="/"
-          header
-          active={activeItem === withPrefix('/')}
-        >
+        <div>
           <Logo />
-          Store
-        </Menu.Item>
+        </div>
         <Menu.Menu position="right">
           <Menu.Item
             as={Link}
             to="/cart/"
             active={activeItem === withPrefix('/cart/')}
           >
-            <ShoppingCartIcon cartCount={cartCount} name="" />
           </Menu.Item>
           <Menu.Item position="right">
             <BurgerButton
@@ -122,9 +115,12 @@ const MobileMenu = ({location: {pathname}, token, cartCount, signout}) => {
               >
                 X
               </CloseButton>
+              <ShoppingCartIcon cartCount={cartCount} name="" />
+
               <StyledLink to="/" onClick={handleClose}>
                 Home
               </StyledLink>
+              
               <StyledDivider />
               <StyledLink to="/cart/" onClick={handleClose}>
                 {`Shopping Cart ${cartCount ? `(${cartCount})` : ''}`}

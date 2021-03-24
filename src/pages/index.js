@@ -22,9 +22,9 @@ import divider from '../images/divider.png'
 import Skus from '../components/Products/Skus'
 import { CartProvider } from 'use-shopping-cart'
 import { loadStripe } from '@stripe/stripe-js'
-
-
-
+import greenhuebg from '../images/greenhuebg.png'
+import iconseries from '../images/4icons.png'
+import deviceprotection from '../images/protection.png'
 const StoreIndex = ({ location }) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
@@ -143,6 +143,30 @@ const StoreIndex = ({ location }) => {
 
       </div>
 
+
+      <div class="lowpricebanner">
+        <div class="overlayy" style={{ display: 'flex', flex: 1, zIndex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ display: 'flex', position: 'absolute', flex: 1, zIndex: 3 }}><div style={{ display: 'flex', flexDirection: 'row' }}> <Card><p>same day service</p></Card><Card><p>oem parts</p></Card><Card><p>genius technicians</p></Card><Card><p>quality guaranteed</p></Card></div></div>
+          <Image src={greenhuebg} style={{ display: 'flex', flex: 1, zIndex: 2 }} height="1450px" />
+
+        </div>
+      </div>
+
+
+      <div class="deviceprotection">
+        <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>YOUR DEVICE NEEDS PROTECTION</strong></h1></div>
+        <div style={{ display: 'flex', flex: 1, flexDirection: 'row' }}>
+          <Card><p>Rugged Protection</p><p>Whether you are going hiking or simply need military grade protection. We got you covered.</p></Card>
+          <Card><p>Liquid Protection</p><p>Whether you are going fishing or giving your goldfish a bath. We got you covered.</p></Card>
+          <Card><p>Slim Protection</p><p>Tired of them thick otty boxes making you look caked up when you put it in your back pocket. We got you covered.</p></Card>
+          <Card><p>Tempered Protection</p><p>Compliment your device with tempered glass. Impact resistance, anti-scratch, and anti-chip.</p></Card>
+
+
+        </div>
+
+
+
+      </div>
 
       <div className="store_information" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', paddingTop: '50px', alignItems: 'center' }}>
         <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>STORE INFORMATION</strong></h1></div>
