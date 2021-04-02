@@ -26,7 +26,7 @@ import greenhuebg from '../images/greenhuebg.png'
 import iconseries from '../images/4icons.png'
 import deviceprotection from '../images/protection.png'
 import buyselltradebanner from '../images/buyselltradebanner.png'
-
+import techsolutions from '../images/techsolutions.png'
 
 const StoreIndex = ({ location }) => {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -218,7 +218,9 @@ const StoreIndex = ({ location }) => {
 
 
       </div>
-
+      <div class="techsolutions" >
+      <Image  src={techsolutions} />
+</div>
       <div className="store_information" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', paddingTop: '50px', alignItems: 'center' }}>
         <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>STORE INFORMATION</strong></h1></div>
       </div>
