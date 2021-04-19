@@ -27,6 +27,10 @@ import iconseries from '../images/4icons.png'
 import deviceprotection from '../images/protection.png'
 import buyselltradebanner from '../images/buyselltradebanner.png'
 import techsolutions from '../images/techsolutions.png'
+import rugged from '../images/rugged.jpg'
+import liquid from '../images/liquid.png'
+import tempered from '../images/tempered.jpg'
+import slim from '../images/slim.png'
 
 const StoreIndex = ({ location }) => {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -76,6 +80,12 @@ const StoreIndex = ({ location }) => {
             justifyContent: 'center'
           }}
         >
+          <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 
           <div style={{ display: 'flex', flex: 1, flexDirection: 'column', textAlign: 'left', lineHeight: '1.5', backgroundColor: '#4b00a1', color: 'white' }}>
             <Image src={banner} />   </div>
@@ -162,43 +172,145 @@ const StoreIndex = ({ location }) => {
           <div style={{padding:'30px',}}>
           
           <div style={{padding:'10px',}}>
-          <Card>
-           
-    
-            <h1>Limited Lifetime Warranty on ALL Repairs*</h1>
-            <p>
+          <div class="box">
+    <div class="container">
 
-            We offer a limited lifetime warranty on all our repairs. If the original repair fails because of a defect with a part we installed or due to the workmanship in repairing the device, we will fix it for FREE. No questions asked.
-</p></Card></div>
-<div style={{padding:'10px',}}>
-<Card>
-  <h1>
-              Same Day Repairs </h1>
-              <p>
-              We really know our stuff, and this experience shows in the quality and speed of our work. Many repairs can be done same day, while you wait.  We know how inconvenient a broken device can be, so we work quickly to fix the issues and get you plugged back in.
-</p></Card>
-</div>
+      <h1 style={{textAlign:'center'}}>Our Services</h1>
+     	<div class="row">
+			 
+			    <div style={{padding:'10px'}} class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+					<div class="card text-center">
+                        <div class="card-header">
+                        <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+                        <div class="title">
+							<h4>Instagram</h4>
+						</div>
+
+                        </div>
+                        
+						<div class="card-body">
+							<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+              <a href="#">Learn More</a>
+
+						</div>
+                        
+                        
+					 </div>
+				</div>	 
+				
+        <div style={{padding:'10px'}} class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+               <div class="card text-center">
+                             <div class="card-header">
+                             <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+                             <div class="title">
+                   <h4>Instagram</h4>
+                 </div>
+     
+                             </div>
+                             
+                 <div class="card-body">
+                   <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                   <a href="#">Learn More</a>
+     
+                 </div>
+                             
+                             
+                </div>
+             </div>	 
+             
+				
+             <div style={{padding:'10px'}} class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+               <div class="card text-center">
+                             <div class="card-header">
+                             <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+                             <div class="title">
+                   <h4>Instagram</h4>
+                 </div>
+     
+                             </div>
+                             
+                 <div class="card-body">
+                   <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                   <a href="#">Learn More</a>
+     
+                 </div>
+                             
+                             
+                </div>
+             </div>	 				
+             <div style={{padding:'10px'}} class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+               <div class="card text-center">
+                             <div class="card-header">
+                             <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+                             <div class="title">
+                   <h4>Instagram</h4>
+                 </div>
+     
+                             </div>
+                             
+                 <div class="card-body">
+                   <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                   <a href="#">Learn More</a>
+     
+                 </div>
+                             
+                             
+                </div>
+             </div>	 				
+             <div style={{padding:'10px'}} class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+               <div class="card text-center">
+                             <div class="card-header">
+                             <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+                             <div class="title">
+                   <h4>Instagram</h4>
+                 </div>
+     
+                             </div>
+                             
+                 <div class="card-body">
+                   <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                   <a href="#">Learn More</a>
+     
+                 </div>
+                             
+                             
+                </div>
+             </div>	             
+             <div style={{padding:'10px'}} class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+               <div class="card text-center">
+                             <div class="card-header">
+                             <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+                             <div class="title">
+                   <h4>Instagram</h4>
+                 </div>
+     
+                             </div>
+                             
+                 <div class="card-body">
+                   <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                   <a href="#">Learn More</a>
+     
+                 </div>
+                             
+                             
+                </div>
+             </div>	 
+		</div>		
+    </div>
+</div></div>
 </div>
 
 <div style={{padding:'30px',}}>
-<div style={{padding:'10px',}}>
-<Card>
-<h1>              Expert Repair Technicians</h1>
-              <p>
-              You only want the best technicians working on your electronic devices. Our highly skilled staff of technicians are true experts and will get your device working like new.
-</p></Card></div>
 
-<div style={{padding:'10px',}}>
-
-<Card>
-             <h1> Drop It Off or Mail It In!              </h1>
-             <p>Drop it off, mail it in, or we’ll come to YOU!  We offer multiple locations and options so that you can get us your device when and where it is convenient for you. You can choose to drop it off, mail it in, or have a technician meet you with our REPAIR2U™ service.
-
-</p></Card>
-</div>
 </div>
 </div></div>
-          <Image src={greenhuebg} style={{ display: 'flex', flex: 1, zIndex: 2 }} height="1450px" />
+          <Image src={greenhuebg} style={{ display: 'flex', flex: 1, zIndex: 2,}} height="1080px" />
 
         </div>
       </div>
@@ -206,15 +318,52 @@ const StoreIndex = ({ location }) => {
 
       <div class="deviceprotection">
         <div style={{ marginBottom: '40px', borderBottom: "5px solid #b8ff00 ", backgroundColor: 'white', paddingBottom: '10px', padding: '20px', width: '100%', alignItem: 'center', justifyContent: 'center', display: 'flex', color: 'black', flex: 1 }}> <h1 style={{ fontFamily: 'Helvetica' }}><strong>YOUR DEVICE NEEDS PROTECTION</strong></h1></div>
-        <div style={{ display: 'flex', flex: 1, flexDirection: 'row' }}>
-          <Card><p>Rugged Protection</p><p>Whether you are going hiking or simply need military grade protection. We got you covered.</p></Card>
-          <Card><p>Liquid Protection</p><p>Whether you are going fishing or giving your goldfish a bath. We got you covered.</p></Card>
-          <Card><p>Slim Protection</p><p>Tired of them thick otty boxes making you look caked up when you put it in your back pocket. We got you covered.</p></Card>
-          <Card><p>Tempered Protection</p><p>Compliment your device with tempered glass. Impact resistance, anti-scratch, and anti-chip.</p></Card>
 
+        <div class="row">
+  <div class="col">
+    <div class="card h-100 py-2">
+    <img class="card-img-top" src={rugged} alt="Card image cap" />
+      <div class="card-body">
+        <h5 class="card-title">Rugged Protection</h5>
+        <p class="card-text">Whether you are going hiking or simply need military grade protection. We got you covered.</p>
+        <a href="#" class="btn btn-primary">See Cases</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  <div class="card h-100 py-2">
+    <img class="card-img-top" src={liquid} alt="Card image cap" />
+      <div class="card-body">
+        <h5 class="card-title">Liquid Protection</h5>
+        <p class="card-text">Whether you are going fishing or giving your goldfish a bath. We got you covered.</p>
+        <a href="#" class="btn btn-primary">See Cases</a>
+      </div>
+    </div>
+      </div>
+      <div class="col">
+  <div class="card h-100 py-2">
+    <img class="card-img-top" src={slim} alt="Card image cap" />
+      <div class="card-body">
+        <h5 class="card-title">Slim Protection</h5>
+        <p class="card-text">Tired of them thick otty boxes making you look caked up when you put it in your back pocket. We got you covered.</p>
+        <a href="#" class="btn btn-primary">See Cases</a>
+      </div>
+    </div>
+      </div>
+      <div class="col">
+  <div class="card h-100 py-2">
+    <img class="card-img-top" src={tempered} alt="Card image cap" />
+      <div class="card-body">
+        <h5 class="card-title">Tempered Protection</h5>
+        <p class="card-text">Compliment your device with tempered glass. Impact resistance, anti-scratch, and anti-chip.</p>
+        <a href="#" class="btn btn-primary">See Cases</a>
+      </div>
+    </div>
+      </div>
 
-        </div>
+</div>
 
+      
 
 
       </div>
